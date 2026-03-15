@@ -97,8 +97,8 @@ window.open(url);
 
 }
 
-document.getElementById("gerar").addEventListener("click",gerarDesculpa);
+document.getElementById("gerar").addEventListener("click", gerarDesculpa);
 
-document.getElementById("copiar").addEventListener("click",copiar);
+document.getElementById("copiar").addEventListener("click", copiar);
 
-document.getElementById("whatsapp").addEventListener("click",whatsapp);
+document.getElementById("whatsapp").addEventListener("click", whatsapp);
