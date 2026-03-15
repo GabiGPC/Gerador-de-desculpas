@@ -1,83 +1,104 @@
 const desculpas = {
 
-trabalho: [
-
-"Meu computador decidiu atualizar exatamente quando eu ia terminar.",
-"O arquivo simplesmente desapareceu do nada.",
-"A internet caiu bem na hora que eu estava enviando.",
-"Meu gato caminhou no teclado e bagunçou tudo.",
-"O sistema travou e perdi tudo que tinha feito.",
-"Recebi uma ligação urgente da família.",
-"Estava esperando uma confirmação que nunca chegou.",
-"Meu antivírus bloqueou o arquivo sem motivo.",
-"O Excel resolveu fazer greve hoje.",
-"Meu alarme não tocou por causa da atualização do celular."
-
+trabalho:[
+"Meu computador atualizou sozinho.",
+"O Excel simplesmente desapareceu.",
+"Minha internet decidiu tirar férias.",
+"Meu antivírus bloqueou tudo.",
+"O sistema caiu exatamente na hora."
 ],
 
-relacionamento: [
-
-"Meu celular morreu e eu só vi sua mensagem agora.",
-"Eu estava tentando escrever algo perfeito e acabei demorando demais.",
-"Fiquei sem bateria e sem carregador.",
-"Meu dia virou uma loucura inesperada.",
+relacionamento:[
+"Meu celular morreu.",
+"Eu estava tentando escrever algo perfeito.",
 "Eu pensei que era amanhã.",
-"Estava resolvendo um problema familiar.",
 "Acabei dormindo sem perceber.",
-"Eu reli sua mensagem várias vezes antes de responder.",
-"Meu cérebro simplesmente entrou em modo avião.",
-"Eu estava tentando organizar minhas ideias."
-
+"Minha bateria acabou."
 ],
 
-social: [
-
-"Meu cachorro ficou doente e precisei cuidar dele.",
-"Acabei ajudando um amigo numa emergência.",
-"O trânsito virou um caos absurdo.",
-"Eu confundi completamente o horário.",
-"Começou a chover muito e fiquei preso.",
-"Minha bateria acabou e perdi contato.",
-"Acordei com uma dor de cabeça gigante.",
-"Meu transporte cancelou de última hora.",
-"Acabei ficando preso em outra reunião.",
-"Um imprevisto familiar apareceu."
-
+social:[
+"Meu cachorro ficou doente.",
+"O trânsito virou um caos.",
+"Confundi completamente o horário.",
+"Começou a chover absurdamente.",
+"Meu transporte cancelou."
 ]
 
 };
 
+const absurdas=[
+
+"Um pombo levou meu celular embora.",
+"Fui sequestrado por uma reunião inesperada.",
+"Meu gato deletou meu compromisso.",
+"Um alien me pediu ajuda e perdi a hora.",
+"Meu despertador entrou em greve.",
+"Meu WiFi foi abduzido.",
+"Um monge tibetano me fez refletir sobre a vida.",
+"Meu café caiu no teclado e iniciou uma crise existencial.",
+"Um cachorro roubou minha agenda.",
+"Eu estava salvando o mundo em segredo."
+
+];
+
 function gerarDesculpa(){
 
-const categoria = document.getElementById("categoria").value;
+const categoria=document.getElementById("categoria").value;
 
-let lista = [];
+const modoAbsurdo=document.getElementById("modoAbsurdo").checked;
 
-if(categoria === "todas"){
-lista = [
+let lista=[];
+
+if(modoAbsurdo){
+
+lista=absurdas;
+
+}else{
+
+if(categoria==="todas"){
+
+lista=[
 ...desculpas.trabalho,
 ...desculpas.relacionamento,
 ...desculpas.social
 ];
+
 }else{
-lista = desculpas[categoria];
-}
 
-const aleatoria = lista[Math.floor(Math.random()*lista.length)];
-
-document.getElementById("desculpa").innerText = aleatoria;
+lista=desculpas[categoria];
 
 }
 
-function copiarDesculpa(){
+}
 
-const texto = document.getElementById("desculpa").innerText;
+const frase=lista[Math.floor(Math.random()*lista.length)];
+
+document.getElementById("desculpa").innerText=frase;
+
+}
+
+function copiar(){
+
+const texto=document.getElementById("desculpa").innerText;
 
 navigator.clipboard.writeText(texto);
 
-alert("Desculpa copiada!");
+alert("Copiado!");
 
 }
 
-document.getElementById("gerar").addEventListener("click", gerarDesculpa);
-document.getElementById("copiar").addEventListener("click", copiarDesculpa);
+function whatsapp(){
+
+const texto=document.getElementById("desculpa").innerText;
+
+const url=`https://wa.me/?text=${encodeURIComponent(texto)}`;
+
+window.open(url);
+
+}
+
+document.getElementById("gerar").addEventListener("click",gerarDesculpa);
+
+document.getElementById("copiar").addEventListener("click",copiar);
+
+document.getElementById("whatsapp").addEventListener("click",whatsapp);esculpa);
