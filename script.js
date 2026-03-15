@@ -1,3 +1,4 @@
+console.log("JS carregou");
 const desculpas = {
 
 trabalho:[
