@@ -101,4 +101,4 @@ document.getElementById("gerar").addEventListener("click",gerarDesculpa);
 
 document.getElementById("copiar").addEventListener("click",copiar);
 
-document.getElementById("whatsapp").addEventListener("click",whatsapp);esculpa);
+document.getElementById("whatsapp").addEventListener("click",whatsapp);
